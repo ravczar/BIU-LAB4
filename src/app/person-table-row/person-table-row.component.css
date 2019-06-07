@@ -1,0 +1,12 @@
+button {
+    color: whitesmoke;
+    background-color: grey;
+}
+
+.save-button {
+    background-color: green;
+}
+
+.undo-button {
+    background-color: orangered;
+}

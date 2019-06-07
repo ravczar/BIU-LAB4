@@ -1,0 +1,43 @@
+<td>
+  {{model.id}}
+</td>
+<td> <!-- Edition -->
+  <span *ngIf="!isBeingEdited">{{model.firstname}}</span>
+  <input *ngIf="isBeingEdited" [(ngModel)]="firstNameInput">
+</td>
+<td>
+  <span *ngIf="!isBeingEdited">{{model.lastname}}</span>
+  <input *ngIf="isBeingEdited" [(ngModel)]="lastNameInput">
+</td>
+<td>
+  <span *ngIf="!isBeingEdited">{{model.gender}}</span>
+  <input *ngIf="isBeingEdited" [(ngModel)]="genderInput">
+</td>
+<td>
+    <span *ngIf="!isBeingEdited">{{model.email}}</span>
+    <input *ngIf="isBeingEdited" [(ngModel)]="emailInput">
+</td>
+<td>
+    <span *ngIf="!isBeingEdited">{{model.age}}</span>
+    <input *ngIf="isBeingEdited" [(ngModel)]="ageInput">
+</td>
+<td>
+  <span *ngIf="!isBeingEdited">{{model.birthday | date:'yyyy-MM-dd'}}</span>
+  <input *ngIf="isBeingEdited" [(ngModel)]="birthdayInput">
+</td>
+<td>
+    <span *ngIf="!isBeingEdited">{{model.income | currency}}</span>
+    <input *ngIf="isBeingEdited" [(ngModel)]="incomeInput">
+</td>
+<td>
+  <!-- actions -->
+  <button *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleEditState()" name='edit-button'>Edit</button>
+  <button *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleDeletionState()" name='delete-button'>Delete</button>  
+
+
+  <button *ngIf="isBeingEdited" (click)="toggleEditState()" name='edit-save-button' class="save-button">Save</button>
+  <button *ngIf="isBeingDeleted" (click)="toggleDeletionState()" name='delete-save-button' class="save-button">Save</button>
+
+  <button *ngIf="isBeingEdited" (click)="toggleEditState(true)" name='edit-undo-button' class="undo-button">Undo</button>
+  <button *ngIf="isBeingDeleted" (click)="toggleDeletionState(true)" name='delete-undo-button' class="undo-button">Undo</button>
+</td>
