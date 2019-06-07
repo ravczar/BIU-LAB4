@@ -10,10 +10,12 @@ import { PersonService, PagingInfo } from "app/services/person-service";
 export class PersonTableComponent implements OnInit {
 
   items: Person[] = [];
+  public numbersTBDarray: Array<number> = [];
 
-  private currentPage = 1;
+  private currentPage : number = 1;
   private showFilters :boolean = false;
 
+  //sorting
   private idAsc: boolean = true;
   private nameAsc: boolean = true;
   private lastNameAsc: boolean = true;
@@ -86,7 +88,9 @@ export class PersonTableComponent implements OnInit {
     this.items = filteredItems;
   }
 
-
+  public getCurrentPage(){
+    return this.currentPage;
+  }
   public sortById(){ // podobne do income, age
     if (this.idAsc)
       this.items.sort((x, y) => x.id -y.id );
@@ -164,8 +168,8 @@ public showFilterRow(){
     this.filter();
   }
 
-  public refresh(): void {
-    this.items = this.personService.getPeople(new PagingInfo(this.currentPage, 10));
+  public refresh(peopleToBeNotShown :Array<number>): void {
+    this.items = this.personService.getPeopleExceptSomeRecords(new PagingInfo(this.currentPage, 10), peopleToBeNotShown);
   }
 
   constructor(public personService: PersonService) { }

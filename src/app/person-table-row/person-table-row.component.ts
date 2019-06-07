@@ -64,17 +64,18 @@ export class PersonTableRowComponent implements OnInit {
     this.isBeingDeleted = !this.isBeingDeleted;
 
     if(this.isBeingDeleted) {
-      this.stateChange.emit("delete")
+      this.stateChange.emit("delete");
     } else if (!isCanceled) {
-      //this.tableParent.items.splice(this.tableParent.items.indexOf(this.model), 1);
-      this.tableParent.personService.removePerson(this.model);
-      this.tableParent.filter();
+      this.tableParent.numbersTBDarray.push(this.model.id);
+      this.tableParent.refresh(this.tableParent.numbersTBDarray);
     } else {
-      this.stateChange.emit("normal")
+      this.stateChange.emit("normal");
     }
   }
 
   private toggleEditState(isCanceled: boolean): void {
+    //this.tableParent.removeItemsTBD();
+    //console.log("To są komponenty w komponencie person-table.items: "+ "ID osoby:" + this.tableParent.items[0].id+ "  imie: " + this.tableParent.items[0].firstname ); // do skasowania
     if(isCanceled === undefined) isCanceled = false;
     
     this.isBeingEdited = !this.isBeingEdited;
