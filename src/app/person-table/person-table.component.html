@@ -1,15 +1,15 @@
 <div class="col-md-9 col-md-offset-1">
   <table class="table table-striped table-hover table-bordered">
     <tr> <!-- Nagłówki-->
-      <th><button (click)="sortById()" class="btn btn-sm btn-danger js-sort-id">Id</button></th>
-      <th><button (click)="sortByName()" class="btn btn-sm btn-danger js-sort-name">Name</button></th>
-      <th><button (click)="sortBySurname()" class="btn btn-sm btn-danger js-sort-surname">Surname</button></th>
-      <th><button (click)="sortByGender()" class="btn btn-sm btn-danger js-sort-gender">Gender</button></th>
-      <th><button (click)="sortByEmail()" class="btn btn-sm btn-danger js-sort-email">Email</button></th>
-      <th><button (click)="sortByAge()" class="btn btn-sm btn-danger js-sort-age">Age</button></th>
-      <th><button (click)="sortByBirthday()" class="btn btn-sm btn-danger js-sort-birthday">Birthsday</button></th>
-      <th><button (click)="sortByIncome()" class="btn btn-sm btn-danger js-sort-income">Income</button></th>
-      <th><button (click)="showFilterRow()" class="btn btn-sm btn-success js-show-filter-row">Show Filters</button></th>
+      <th><button (click)="sortById()" class="btn btn-sm btn-danger center-block js-sort-id">Id</button></th>
+      <th><button (click)="sortByName()" class="btn btn-sm btn-danger center-block js-sort-name">Name</button></th>
+      <th><button (click)="sortBySurname()" class="btn btn-sm btn-danger center-block js-sort-surname">Surname</button></th>
+      <th><button (click)="sortByGender()" class="btn btn-sm btn-danger center-block js-sort-gender">Gender</button></th>
+      <th><button (click)="sortByEmail()" class="btn btn-sm btn-danger center-block js-sort-email">Email</button></th>
+      <th><button (click)="sortByAge()" class="btn btn-sm btn-danger center-block js-sort-age">Age</button></th>
+      <th><button (click)="sortByBirthday()" class="btn btn-sm btn-danger center-block js-sort-birthday">Birthsday</button></th>
+      <th><button (click)="sortByIncome()" class="btn btn-sm btn-danger center-block js-sort-income">Income</button></th>
+      <th><button (click)="showFilterRow()" class="btn btn-sm btn-success center-block js-show-filter-row">Show Filters</button></th>
     </tr>
 
     <tr *ngIf="showFilters">
@@ -28,12 +28,14 @@
       </th>
       
       <th>
-        Male<br>
+        <label>Male</label>
         <input class="form-control" type="checkbox" name="filter_male_checkbox" checked
-          [(ngModel)]="maleFilter" (ngModelChange)="filter()"> 
-        Female<br>
+          [(ngModel)]="maleFilter" (ngModelChange)="filter()">
+
+        <label>Female</label>
         <input class="form-control" type="checkbox" name="filter_female_checkbox" checked
-          [(ngModel)]="femaleFilter" (ngModelChange)="filter()"> 
+          [(ngModel)]="femaleFilter" (ngModelChange)="filter()">
+        
       </th>
       
       <th>
@@ -43,28 +45,28 @@
       </th>
       
       <th>
-        From:<br>
+        <label>From:</label>
         <input class="form-control" name="filter_age_from_input" type="number" placeholder="1"
           [(ngModel)]="ageFromFilter" (ngModelChange)="filter()">
-        To:<br>
+        <label>To:</label> 
         <input class="form-control" name="filter_age_to_input" type="number" placeholder="99"
           [(ngModel)]="ageToFilter" (ngModelChange)="filter()">
       </th>
       
       <th>
-        From:<br>
+        <label>From:</label>
         <input class="form-control" name="filter_birth_from_input" placeholder="1982-10-13"
           [(ngModel)]="birthFromFilter" (ngModelChange)="filter()">
-        To:<br>
+        <label>To:</label>
         <input class="form-control" name="filter_birth_to_input" placeholder="1989-09-29"
           [(ngModel)]="birthToFilter" (ngModelChange)="filter()">
       </th>
       
       <th>
-        From:<br>
+        <label>From:</label>
         <input class="form-control" name="filter_income_from_input" placeholder="111"
           [(ngModel)]="incomeFromFilter" (ngModelChange)="filter()">
-        To:<br>
+        <label>To:</label>
         <input class="form-control" name="filter_income_to_input" placeholder="666.99"     
           [(ngModel)]="incomeToFilter" (ngModelChange)="filter()">
         </th>

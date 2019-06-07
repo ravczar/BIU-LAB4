@@ -13,8 +13,12 @@ export class PersonTableRowComponent implements OnInit {
 
   @Input() model:Person;
   @Input() tableParent: PersonTableComponent;
+  @Input() ngStyle: { [klass: string]: any; } 
   
   @Output() stateChange = new EventEmitter();
+
+  private editColor : string = "#007bff";
+  private deleteColor : string = "#dc3545";
 
   firstNameInput: string;
   lastNameInput: string;

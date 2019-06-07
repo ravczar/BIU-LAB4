@@ -1,43 +1,42 @@
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   {{model.id}}
 </td>
-<td> <!-- Edition -->
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}"> <!-- Edit data or show data -->
   <span *ngIf="!isBeingEdited">{{model.firstname}}</span>
   <input *ngIf="isBeingEdited" [(ngModel)]="firstNameInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.lastname}}</span>
   <input *ngIf="isBeingEdited" [(ngModel)]="lastNameInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.gender}}</span>
   <input *ngIf="isBeingEdited" [(ngModel)]="genderInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.email}}</span>
     <input *ngIf="isBeingEdited" [(ngModel)]="emailInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.age}}</span>
     <input *ngIf="isBeingEdited" [(ngModel)]="ageInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.birthday | date:'yyyy-MM-dd'}}</span>
   <input *ngIf="isBeingEdited" [(ngModel)]="birthdayInput">
 </td>
-<td>
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.income | currency}}</span>
     <input *ngIf="isBeingEdited" [(ngModel)]="incomeInput">
 </td>
-<td>
-  <!-- actions -->
-  <button *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleEditState()" name='edit-button'>Edit</button>
-  <button *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleDeletionState()" name='delete-button'>Delete</button>  
 
+<td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}"> <!-- Buttons easiest method -->
+  <button class= "btn btn-secondary btn-sm center-block" *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleEditState()" name='edit-button'>Edit</button>
+  <button class= "btn btn-secondary btn-sm center-block" *ngIf="!isBeingEdited && !isBeingDeleted" (click)="toggleDeletionState()" name='delete-button'>Delete</button>  
 
-  <button *ngIf="isBeingEdited" (click)="toggleEditState()" name='edit-save-button' class="save-button">Save</button>
-  <button *ngIf="isBeingDeleted" (click)="toggleDeletionState()" name='delete-save-button' class="save-button">Save</button>
+  <button class="btn btn-success btn-sm center-block save-button" *ngIf="isBeingEdited" (click)="toggleEditState()" name='edit-save-button' >Save</button>
+  <button class="btn btn-success center-block save-button" *ngIf="isBeingDeleted" (click)="toggleDeletionState()" name='delete-save-button' >Save</button>
 
-  <button *ngIf="isBeingEdited" (click)="toggleEditState(true)" name='edit-undo-button' class="undo-button">Undo</button>
-  <button *ngIf="isBeingDeleted" (click)="toggleDeletionState(true)" name='delete-undo-button' class="undo-button">Undo</button>
+  <button class="btn btn-warning btn-sm center-block undo-button" *ngIf="isBeingEdited" (click)="toggleEditState(true)" name='edit-undo-button' >Undo</button>
+  <button class="btn btn-warning btn-sm center-block undo-button" *ngIf="isBeingDeleted" (click)="toggleDeletionState(true)" name='delete-undo-button' >Undo</button>
 </td>
