@@ -76,7 +76,10 @@
 
     <tr *ngFor="let item of items" person-table-row [model]="item" [tableParent]="this">
     </tr>
+
   </table>
-  <person-table-paging (next)="next()" (prev)="prev()"><!-- o tutaj!! -->
+
+  <person-table-paging (next)="next()" (prev)="prev()"><!-- o tutaj!! Event emmiter z person-table-paging.component.ts Pod emitter: "next()"" z P-t-p.ts podpinamy metode next() z obecnego komponentu. -->
     </person-table-paging> 
+
 </div>

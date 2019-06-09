@@ -3,31 +3,31 @@
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}"> <!-- Edit data or show data -->
   <span *ngIf="!isBeingEdited">{{model.firstname}}</span>
-  <input *ngIf="isBeingEdited" [(ngModel)]="firstNameInput">
+  <input class="form-control form-control-sm" *ngIf="isBeingEdited" [(ngModel)]="firstNameInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.lastname}}</span>
-  <input *ngIf="isBeingEdited" [(ngModel)]="lastNameInput">
+  <input class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="lastNameInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.gender}}</span>
-  <input *ngIf="isBeingEdited" [(ngModel)]="genderInput">
+  <input class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="genderInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.email}}</span>
-    <input *ngIf="isBeingEdited" [(ngModel)]="emailInput">
+    <input type="email" class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="emailInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.age}}</span>
-    <input *ngIf="isBeingEdited" [(ngModel)]="ageInput">
+    <input class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="ageInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
   <span *ngIf="!isBeingEdited">{{model.birthday | date:'yyyy-MM-dd'}}</span>
-  <input *ngIf="isBeingEdited" [(ngModel)]="birthdayInput">
+  <input class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="birthdayInput">
 </td>
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}">
     <span *ngIf="!isBeingEdited">{{model.income | currency}}</span>
-    <input *ngIf="isBeingEdited" [(ngModel)]="incomeInput">
+    <input class="form-control form-control-sm"  *ngIf="isBeingEdited" [(ngModel)]="incomeInput">
 </td>
 
 <td [ngStyle]="isBeingEdited && {'background-color': editColor} || isBeingDeleted && {'background-color': deleteColor}"> <!-- Buttons easiest method -->
